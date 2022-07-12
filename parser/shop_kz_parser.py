@@ -1,4 +1,3 @@
-from cgitb import text
 import requests
 import logging
 from multiprocessing import Pool
@@ -70,7 +69,6 @@ class ShopKzParser(Request):
             for res in results_iter:
                 products += res
 
-        # smartphones.json
         json_object = json.dumps(products, indent = 4)
 
         with open("smartphones.json", "w") as outfile:
@@ -78,7 +76,7 @@ class ShopKzParser(Request):
 
 
     def smartphone_request_and_parse(self, page_num: int) -> list:
-        print(page_num)
+
         path: str = f'{ self._SMARTPHONE_PATH }?PAGEN_1={ page_num }'
         response: requests.Response = self.make_request(
             URL, path=path, request_method='get', headers=self.HEADERS)

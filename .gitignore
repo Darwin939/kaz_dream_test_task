@@ -1,2 +1,4 @@
 venv
 parser/__pycache__
+.vscode
+__pycache__
